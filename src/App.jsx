@@ -5,6 +5,7 @@ import { getFirestore, collection, doc, setDoc, onSnapshot } from 'firebase/fire
 import { BookOpen, BarChart2, CheckCircle, XCircle, ChevronRight, ChevronLeft, Lock, Home, User, Info, List, Briefcase, AlertTriangle, Edit3, Brain, Image as ImageIcon, CheckSquare, MonitorPlay, TrendingUp, Projector, Sparkles, Eye, Activity, Presentation } from 'lucide-react';
 
 // --- CONFIGURACIÓN DE FIREBASE ---
+// --- CONFIGURACIÓN DE FIREBASE ---
 const firebaseConfig = {
   apiKey: "AIzaSyBjQQ6nVl8UrAySaxh6G1iP5QmPAB2Wr3Y",
   authDomain: "practica-docente-iv-normas.firebaseapp.com",
@@ -14,6 +15,12 @@ const firebaseConfig = {
   messagingSenderId: "990824406949",
   appId: "1:990824406949:web:abe0208d7b52d80678d24c"
 };
+
+// Estas líneas son VITALES para que no dé error de pantalla blanca:
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const appId = 'practica-docente-iv-normas';
 
 // --- BASE DE DATOS DEL CUESTIONARIO (35 PREGUNTAS EN 6 MÓDULOS) ---
 const quizData = [
